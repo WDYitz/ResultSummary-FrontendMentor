@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
+
+  <title>Frontend Mentor | Results summary component</title>
+
+  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300&display=swap');
+
+    :root {
+      --light-red: hsl(0, 100%, 67%);
+      --Orangey-yellow: hsl(39, 100%, 56%);
+      --Green-teal: hsl(166, 100%, 37%);
+      --Cobalt-blue: hsl(234, 85%, 45%);
+
+      /**** ---- Gradients ---- ****/
+      --G-Light-slate-blue:
+        /*(background)*/
+        hsl(256, 89%, 61%);
+      --G-Light-royal-blue:
+        /*(background)*/
+        hsl(241, 100%, 50%);
+      --G-Violet-blue:
+        /*(circle)*/
+        hsl(256, 95%, 49%);
+      --G-Persian-blue:
+        /*(circle)*/
+        hsla(241, 87%, 52%, 0);
+    }
+
+    .attribution {
+      font-size: 11px;
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    .attribution a {
+      color: hsl(228, 45%, 44%);
+
+    }
+
+    *,
+    *::before,
+    *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Outfit', sans-serif;
+    }
+
+    body,
+    main {
+      width: 100%;
+      height: 100vh;
+    }
+
+    @media screen and (min-width: 375px) {
+
+      .container--score-result {
+        width: 100%;
+        height: 320px;
+        background: linear-gradient(180deg, var(--G-Light-slate-blue), var(--G-Light-royal-blue));
+        border-radius: 0 0 40px 40px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+        padding: 0 45px 0 45px;
+      }
+
+      #score--result-text {
+        font-size: 18px;
+        color: #ffffffc1;
+        font-weight: 600;
+      }
+
+      .score--result {
+        width: 130px;
+        height: 130px;
+        background: linear-gradient(180deg, var(--G-Violet-blue), var(--G-Persian-blue));
+        padding: 20px;
+        border-radius: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+      }
+
+      .score--num-top {
+        padding-bottom: 5px;
+        font-size: 50px;
+        color: #fff;
+        font-weight: 600;
+      }
+
+      .score--num-bot {
+        color: #ffffff6e;
+        font-weight: 800;
+      }
+
+      .score--text {
+        width: 100%;
+        text-align: center;
+        color: #fff;
+        padding-bottom: 15px;
+      }
+
+      .score--text p {
+        color: #ffffffb6;
+        font-size: 1.1rem;
+      }
+
+      .score--text p:first-child {
+        color: #ffffff;
+        padding-bottom: 12px;
+        font-weight: 800;
+        font-size: 1.5rem;
+      }
+
+      .container--summary {
+        padding: 25px 35px 25px 35px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .container--summary h2:first-child {
+        width: 100%;
+        padding: 0 0 25px 0;
+        font-weight: 600;
+        font-size: 1.3rem;
+        text-align: left;
+      }
+
+      .summary--item {
+        margin-bottom: 20px;
+        border-radius: 15px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 0.8rem;
+        width: 100%;
+      }
+
+      .summary--item:hover img:first-child {
+        transform: scale(1.2);
+        transition: all .5s ease-in-out;
+      }
+
+      .summary--item:nth-child(2) {
+        max-width: 100%;
+        height: 65px;
+        background-color: hsl(0, 100%, 67%, 0.15);
+      }
+
+      .summary--item:nth-child(3) {
+        max-width: 100%;
+        height: 65px;
+        background-color: hsl(39, 100%, 56%, 0.15);
+      }
+
+      .summary--item:nth-child(4) {
+        max-width: 100%;
+        height: 65px;
+        background-color: hsl(166, 100%, 37%, 0.15);
+      }
+
+      .summary--item:nth-child(5) {
+        max-width: 100%;
+        height: 65px;
+        background-color: hsl(234, 85%, 45%, 0.15);
+      }
+
+      .summary--item:nth-child(2) h2 {
+        color: var(--light-red);
+      }
+
+      .summary--item:nth-child(3) h2 {
+        color: var(--Orangey-yellow);
+      }
+
+      .summary--item:nth-child(4) h2 {
+        color: var(--Green-teal);
+      }
+
+      .summary--item:nth-child(5) h2 {
+        color: var(--Cobalt-blue);
+      }
+
+      .summary--item p {
+        margin-right: 20px;
+        color: #4d4949cd;
+        font-size: 1rem;
+      }
+
+      .summary--item b {
+        color: #0e0936f1;
+      }
+
+      .summary--name {
+        display: flex;
+        width: 200px;
+      }
+
+      .summary--name img {
+        margin: 0 16px 0 16px
+      }
+
+      #btn--continue {
+        outline: none;
+        border: 0;
+        width: 100%;
+        max-width: 500px;
+        height: 60px;
+        border-radius: 50px;
+        color: #fff;
+        font-weight: 600;
+        font-size: 1.1rem;
+        background-color: hsl(224, 42%, 21%);
+        cursor: pointer;
+        transition: all .7s ease-in;
+      }
+
+      #btn--continue:hover {
+        background: linear-gradient(180deg, var(--Cobalt-blue), var(--G-Violet-blue));
+      }
+    }
+
+    @media screen and (min-width: 1440px) {
+      body {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+
+      main {
+        width: 50%;
+        height: 50%;
+        display: flex;
+        border-radius: 20px;
+      }
+
+      .container--score-result {
+        max-width: 40%;
+        height: 100%;
+        background: linear-gradient(180deg, var(--G-Light-slate-blue), var(--G-Light-royal-blue));
+        border-radius: 20px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+        padding: 0 45px 0 45px;
+        transform: translateX(15px);
+      }
+
+      #score--result-text {
+        font-size: 18px;
+        color: #ffffffc1;
+        font-weight: 600;
+        margin-top: 20px;
+      }
+
+      .score--result {
+        width: 150px;
+        height: 150px;
+        background: linear-gradient(180deg, var(--G-Violet-blue), var(--G-Persian-blue));
+        padding: 20px;
+        border-radius: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+      }
+
+      .score--num-top {
+        padding-bottom: 5px;
+        font-size: 50px;
+        color: #fff;
+        font-weight: 600;
+      }
+
+      .score--num-bot {
+        color: #ffffff6e;
+        font-weight: 800;
+      }
+
+      .score--text {
+        width: 100%;
+        text-align: center;
+        color: #fff;
+        padding-bottom: 15px;
+      }
+
+      .score--text p {
+        color: #ffffffb6;
+        font-size: 1.1rem;
+      }
+
+      .score--text p:first-child {
+        color: #ffffff;
+        padding-bottom: 12px;
+        font-weight: 800;
+        font-size: 1.5rem;
+      }
+
+      .container--summary {
+        padding: 25px 35px 25px 35px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 60%;
+        background-color: white;
+        box-shadow: 0px 5px 20px gray;
+        border-top-right-radius: 20px;
+        border-bottom-right-radius: 20px;
+      }
+
+      .container--summary h2:first-child {
+        width: 100%;
+        padding: 0 0 25px 0;
+        font-weight: 600;
+        font-size: 1.3rem;
+        text-align: left;
+      }
+
+      .summary--item {
+        margin-bottom: 20px;
+        border-radius: 15px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 0.8rem;
+        width: 100%;
+      }
+
+      .summary--item:hover img:first-child {
+        transform: scale(1.2);
+        transition: all .5s ease-in-out;
+      }
+
+      .summary--item:nth-child(2) {
+        max-width: 100%;
+        height: 65px;
+        background-color: hsl(0, 100%, 67%, 0.15);
+      }
+
+      .summary--item:nth-child(3) {
+        max-width: 100%;
+        height: 65px;
+        background-color: hsl(39, 100%, 56%, 0.15);
+      }
+
+      .summary--item:nth-child(4) {
+        max-width: 100%;
+        height: 65px;
+        background-color: hsl(166, 100%, 37%, 0.15);
+      }
+
+      .summary--item:nth-child(5) {
+        max-width: 100%;
+        height: 65px;
+        background-color: hsl(234, 85%, 45%, 0.15);
+      }
+
+      .summary--item:nth-child(2) h2 {
+        color: var(--light-red);
+      }
+
+      .summary--item:nth-child(3) h2 {
+        color: var(--Orangey-yellow);
+      }
+
+      .summary--item:nth-child(4) h2 {
+        color: var(--Green-teal);
+      }
+
+      .summary--item:nth-child(5) h2 {
+        color: var(--Cobalt-blue);
+      }
+
+      .summary--item p {
+        margin-right: 20px;
+        color: #4d4949cd;
+        font-size: 1rem;
+      }
+
+      .summary--item b {
+        color: #0e0936f1;
+      }
+
+      .summary--name {
+        display: flex;
+        width: 200px;
+      }
+
+      .summary--name img {
+        margin: 0 16px 0 16px
+      }
+
+      #btn--continue {
+        outline: none;
+        border: 0;
+        width: 100%;
+        max-width: 500px;
+        height: 60px;
+        border-radius: 50px;
+        color: #fff;
+        font-weight: 600;
+        font-size: 1.1rem;
+        background-color: hsl(224, 42%, 21%);
+        cursor: pointer;
+        transition: all .7s ease-in;
+      }
+
+      #btn--continue:hover {
+        background: linear-gradient(180deg, var(--Cobalt-blue), var(--G-Violet-blue));
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <main>
+    <div class="container--score-result">
+      <p id="score--result-text">Your Result</p>
+      <div class="score--result">
+        <p class="score--num-top">76</p>
+        <p class="score--num-bot">of 100</p>
+      </div>
+      <div class="score--text">
+        <p>Great</p>
+        <p>You scored higher than 65% of the people who have taken these tests.</p>
+      </div>
+    </div>
+    <div class="container--summary">
+      <h2> Summary </h2>
+      <div class="summary--item">
+        <div class="summary--name">
+          <img src="/assets/images/icon-reaction.svg" alt="">
+          <h2>Reaction</h2>
+        </div>
+        <p><b>80</b> / 100</p>
+      </div>
+      <div class="summary--item">
+        <div class="summary--name">
+          <img src="/assets/images/icon-memory.svg" alt="">
+          <h2>Memory</h2>
+        </div>
+        <p><b>92</b> / 100</p>
+      </div>
+      <div class="summary--item">
+        <div class="summary--name">
+          <img src="/assets/images/icon-verbal.svg" alt="">
+          <h2>Verbal</h2>
+        </div>
+        <p><b>61</b> / 100</p>
+      </div>
+      <div class="summary--item">
+        <div class="summary--name">
+          <img src="/assets/images/icon-visual.svg" alt="">
+          <h2>Visual</h2>
+        </div>
+        <p><b>72</b> / 100</p>
+      </div>
+      <button id="btn--continue">Continue</button>
+    </div>
+  </main>
+
+  <div class="attribution">
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>.
+    Coded by <a href="#">Yitzhak Rodriguez</a>.
+  </div>
+
+</body>
+
+</html>
