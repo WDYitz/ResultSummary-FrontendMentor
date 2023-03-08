@@ -40,7 +40,7 @@ Then crop/optimize/edit your image however you like, add it to your project, and
 ## Author
 
 - PUBLISHED https://wdyitz.github.io/ResultSummary-FrontendMentor/
-- 
+
 - Frontend Mentor - [@WDYitz](https://www.frontendmentor.io/profile/WDYitz)
 
 
